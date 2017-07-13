@@ -9,9 +9,14 @@ theme: metropolis
 ```
 $ which python
 /usr/local/bin/python
+
 $ source ~/.venvs/madpy/bin/activate
+
 (madpy) $ which python
 /Users/pierce/.venvs/madpy/bin/python
+
+(madpy) $ which pip
+/Users/work/.venvs/madpy/bin/pip
 ```
 
 # Why use virtual environments (venvs)?
@@ -56,6 +61,26 @@ $ source ~/.venvs/project-a/bin/activate
 (project-a) $
 ```
 
+# Demo
+
+Installing `google_survey` in a virtualenv.
+
+```bash
+# Create and activate new python3 virtualenv named madpy2
+$ python -m venv ~/.venvs/madpy2
+$ source ~/.venvs/madpy2/bin/activate
+
+# Install google_survey from github
+(madpy2) $ pip install git+git://github.com/madison-python/google-survey.git#egg=google_survey
+
+# Test out google_survey
+(madpy2) $ python -m google_survey madpy-habits-survey.yaml > results.csv
+
+# Deactivate
+(madpy2) $ deactivate
+$
+```
+
 # virtualenvwrapper
 
 ```bash
@@ -75,16 +100,23 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # virtualenvwrapper saves you keystrokes
 
-```
+```bash
 $ python3 -m venv ~/.venvs/project-a
 $ source ~/.venvs/project-a/bin/activate
 (project-a) $ pip install -r requirements.txt
 (project-a) $
 ```
 
-```
+```bash
 $ mkvirtualenv project-a -r requirements.txt
 (project-a) $
+```
+
+# Other features of virtualenvwrapper
+
+```bash
+ls $VIRTUALENVWRAPPER_HOOK_DIR  # list of hooks
+virtualenvwrapper                 # list of commands
 ```
 
 # Installation and python2/python3 headaches
@@ -106,49 +138,13 @@ $ mkvirtualenv --python=python2 project-a  # python2
 # virtualenvwrapper overview
 
 1. `pip3 install virtualenvwrapper`
-2. `vim ~/.bash_profile`
+2. `vim ~/.bash_profile` ← export WORKON_HOME and source virtualenvwrapper.sh
 3. `source ~/.bash_profile`
 4. `mkvirtualenv project-a`
 5. `workon project-a`
 
-# Separate python installs
+# Other approaches to environment management
 
-- Canopy
-- Anaconda
 - pyenv
-
-# Canopy
-
-A GUI for Youi!
-
-# Anaconda
-
-```bash
-$ brew install anaconda
-$ source ~/anaconda3/bin/activate
-(root) $
-```
-
-# New conda environments
-
-Create an empty python3.4 conda environment, and install scipy in it.
-
-```bash
-(root) $ conda create -n project-a python=3.4
-(root) $ source activate project-a
-(project-a) $ conda install scipy
-```
-
-# conda for big and complicated environments
-
-```bash
-(root) $ conda env export >> my-env.yaml
-```
-
-# pyvenv
-
-Wouldn't it be great if your computer knew which python you wanted to run based on which directory you were in?
-
-- pyvenv looks for a `.python-version` file (or an environment variable) to determine which version of python to use.
-- Great for multiple python installs (including conda!).
-- But doesn't work for virtualenvs, so you still end up having to `activate` your project-specific environments to use them.
+- Canopy by Enthought
+- Anaconda by Continuum
