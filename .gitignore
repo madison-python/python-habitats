@@ -1,4 +1,4 @@
 madpy-service-account-key.json
 *.pdf
 .ipynb_checkpoints/
-!static/*
+!cheatsheets/*

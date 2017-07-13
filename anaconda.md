@@ -40,7 +40,9 @@ $ conda install --channel=other_smart_people tough_to_install
 - Anaconda Enterprise Notebooks
 - Anaconda Fusion
 
-![Anaconda Fusion](img/fusion-data-analytics-compute.png)
+# Anaconda Fusion
+
+![A scary figure](img/fusion-data-analytics-compute.png)
 
 # Anaconda
 
@@ -48,16 +50,20 @@ $ conda install --channel=other_smart_people tough_to_install
 $ brew cask install anaconda
 $ source ~/anaconda3/bin/activate
 # might be: /usr/local/anaconda3/bin/activate
-(root) $ conda help
+(root) $ conda
 ```
 
 # New conda environments
 
-Create a new python3.4 conda environment, and install scipy in it.
+> Create a new python3.4 conda environment, and install scipy in it.
 
 ```bash
 (root) $ conda create -n madpy2 python=3.4 scipy
 ```
+
+# The Conda Cheat Sheet!
+
+<https://github.com/madison-python/python-habitats/cheat-sheets/conda-cheatsheet.pdf>
 
 # Different source commands
 
@@ -69,7 +75,7 @@ $ source activate madpy2
 $ source deactivate
 ```
 
-# Activate root first, then virtualenv
+# Activate root conda environment first, then virtualenv
 
 ```bash
 $ source ~/anaconda3/bin/activate
@@ -96,6 +102,7 @@ $ source ~/anaconda3/bin/activate
 
 ```bash
 (my-project) $ conda env export > my-project-env.yaml
+(my-project) $ conda list --explicit > my-project-env.txt
 ```
 
 # Installing from an environment yaml

@@ -63,18 +63,20 @@ $ source ~/.venvs/project-a/bin/activate
 
 # Demo
 
-Installing `google_survey` in a virtualenv.
+> Installing `google_survey` in a virtualenv.
 
 ```bash
 # Create and activate new python3 virtualenv named madpy2
-$ python -m venv ~/.venvs/madpy2
+$ python3 -m venv ~/.venvs/madpy2
 $ source ~/.venvs/madpy2/bin/activate
 
 # Install google_survey from github
-(madpy2) $ pip install git+git://github.com/madison-python/google-survey.git#egg=google_survey
+(madpy2) $ pip install \
+git+git://github.com/madison-python/google-survey.git#egg=google_survey
 
 # Test out google_survey
-(madpy2) $ python -m google_survey madpy-habits-survey.yaml > results.csv
+(madpy2) $ python -m google_survey madpy-habits-survey.yaml \
+           > results.csv
 
 # Deactivate
 (madpy2) $ deactivate
@@ -83,10 +85,18 @@ $
 
 # virtualenvwrapper
 
+virtualenvwrapper is a wrapper around venv creation.
+
 ```bash
 $ mkvirtualenv project-a
 $ workon project-a
 (project-a) $
+```
+
+# Install virtualenvwrapper with pip
+
+```bash
+$ pip install virtualenvwrapper  # !!! bootstrapping problem !!!
 ```
 
 # Configuration for virtualenvwrapper
@@ -99,6 +109,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 ```
 
 # virtualenvwrapper saves you keystrokes
+
+> So you want to work on a new project, and you've got a text file of requirements to install.
 
 ```bash
 $ python3 -m venv ~/.venvs/project-a
@@ -115,13 +127,11 @@ $ mkvirtualenv project-a -r requirements.txt
 # Other features of virtualenvwrapper
 
 ```bash
+virtualenvwrapper               # list of commands
 ls $VIRTUALENVWRAPPER_HOOK_DIR  # list of hooks
-virtualenvwrapper                 # list of commands
 ```
 
 # Installation and python2/python3 headaches
-
-Install virtualenvwrapper with pip.
 
 ```
 $ pip2 install virtualenvwrapper
